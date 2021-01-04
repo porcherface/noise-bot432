@@ -1,20 +1,12 @@
-"""
-    This show how to get facebook page public posts.
-"""
-
-import json
-
+# test.py
 from pyfacebook import Api
 
-# Use version 5+, Call API need app secret proof. So need provide your app secret.
-# If not have, you can just use version 4.0.
-APP_ID = "Your APP ID"
-APP_SECRET = "Your APP SECRET"
-
-ACCESS_TOKEN = "Your Access Token"
+APP_ID = "Your ID"
+APP_SECRET = "Your SECRET"
+ACCESS_TOKEN = "Your Token"
 
 
-def get_posts(page_username):
+def get_data(page_username):
     api = Api(
         app_id=APP_ID,
         app_secret=APP_SECRET,
@@ -32,10 +24,9 @@ def get_posts(page_username):
 
 def processor():
     page_username = "WHO"
-    data = get_posts(page_username)
+    data = get_data(page_username)
     with open("wto_posts.json", 'w') as f:
         json.dump(data, f)
 
-
 if __name__ == "__main__":
-    processor()
+    print("all set")
